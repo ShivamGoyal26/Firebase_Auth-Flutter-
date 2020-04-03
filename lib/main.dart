@@ -105,11 +105,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: EdgeInsets.only(left: 25, right: 20),
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.only(top: 45),
+                    padding: EdgeInsets.only(top: 40),
                     child: Container(
                       height: MediaQuery.of(context).size.height - 300,
                       child: ListView(
-                        children: <Widget>[],
+                        children: <Widget>[
+                          _buildFoodItem(
+                              'assets/plate1.png', 'Salmon bowl', '\$24.00'),
+                          _buildFoodItem(
+                              'assets/plate2.png', 'Spring bowl', '\$22.00'),
+                          _buildFoodItem(
+                              'assets/plate3.png', 'Avacado bowl', '\$26.00'),
+                          _buildFoodItem(
+                              'assets/plate4.png', 'Maggi bowl', '\$24.00'),
+                          _buildFoodItem(
+                              'assets/plate5.png', 'Coffe bowl', '\$22.00'),
+                          _buildFoodItem(
+                              'assets/plate6.png', 'Tunafish bowl', '\$26.00'),
+                        ],
                       ),
                     ),
                   ),
@@ -170,7 +183,7 @@ Widget _buildFoodItem(String imgpath, String foodName, String price) {
           IconButton(
             icon: Icon(Icons.add),
             color: Colors.black,
-            onPressed: (){},
+            onPressed: () {},
           )
         ],
       ),
