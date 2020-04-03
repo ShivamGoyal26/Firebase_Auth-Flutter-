@@ -56,7 +56,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   width: MediaQuery.of(context).size.width,
                 ),
                 Positioned(
-                  top: 75.0,
+                  top: 70.0,
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
