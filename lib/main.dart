@@ -57,10 +57,41 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
+            SizedBox(
+              height: 25,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 40),
+              child: Row(
+                children: <Widget>[
+                  Text(
+                    "Healthy",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                      fontFamily: 'Montserrat',
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    "Food",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontFamily: 'Montserrat',
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 40,),
           ],
         ));
   }
