@@ -91,8 +91,89 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            SizedBox(height: 40,),
+            SizedBox(
+              height: 40,
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height - 185.0,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(75)),
+              ),
+              child: ListView(
+                primary: false,
+                padding: EdgeInsets.only(left: 25, right: 20),
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(top: 45),
+                    child: Container(
+                      height: MediaQuery.of(context).size.height - 300,
+                      child: ListView(
+                        children: <Widget>[],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ));
   }
+}
+
+Widget _buildFoodItem(String imgpath, String foodName, String price) {
+  return Padding(
+    padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+    child: InkWell(
+      onTap: () {},
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Container(
+            child: Row(
+              children: <Widget>[
+                Hero(
+                  tag: imgpath,
+                  child: Image(
+                    image: AssetImage(imgpath),
+                    fit: BoxFit.cover,
+                    height: 75,
+                    width: 75,
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      foodName,
+                      style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 17.0,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      foodName,
+                      style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        fontSize: 15.0,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+          IconButton(
+            icon: Icon(Icons.add),
+            color: Colors.black,
+            onPressed: (){},
+          )
+        ],
+      ),
+    ),
+  );
 }
