@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './details_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,6 +15,9 @@ class MyApp extends StatelessWidget {
       ),
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,
+      routes: {
+        DetailsPage.routeName: (ctx) => DetailsPage(),
+      },
     );
   }
 }
@@ -110,16 +114,16 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: MediaQuery.of(context).size.height - 300,
                       child: ListView(
                         children: <Widget>[
-                          _buildFoodItem(
-                              'assets/plate1.png', 'Salmon bowl', '\$24.00'),
-                          _buildFoodItem(
-                              'assets/plate2.png', 'Spring bowl', '\$22.00'),
-                          _buildFoodItem(
-                              'assets/plate3.png', 'Avacado bowl', '\$26.00'),
-                          _buildFoodItem(
-                              'assets/plate4.png', 'Maggi bowl', '\$24.00'),
-                          _buildFoodItem(
-                              'assets/plate5.png', 'Coffe bowl', '\$22.00'),
+                          _buildFoodItem(context, 'assets/plate1.png',
+                              'Salmon bowl', '\$24.00'),
+                          _buildFoodItem(context, 'assets/plate2.png',
+                              'Spring bowl', '\$22.00'),
+                          _buildFoodItem(context, 'assets/plate3.png',
+                              'Avacado bowl', '\$26.00'),
+                          _buildFoodItem(context, 'assets/plate4.png',
+                              'Maggi bowl', '\$24.00'),
+                          _buildFoodItem(context, 'assets/plate5.png',
+                              'Coffe bowl', '\$22.00'),
                         ],
                       ),
                     ),
@@ -186,11 +190,17 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-Widget _buildFoodItem(String imgpath, String foodName, String price) {
+Widget _buildFoodItem(
+    BuildContext context, String imgpath, String foodName, String price) {
   return Padding(
     padding: EdgeInsets.only(left: 10, right: 10, top: 10),
     child: InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).pushNamed(
+          DetailsPage.routeName,
+          arguments: [imgpath, foodName, price],
+        );
+      },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
