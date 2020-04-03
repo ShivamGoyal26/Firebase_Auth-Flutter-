@@ -120,13 +120,13 @@ class _MyHomePageState extends State<MyHomePage> {
                               'assets/plate4.png', 'Maggi bowl', '\$24.00'),
                           _buildFoodItem(
                               'assets/plate5.png', 'Coffe bowl', '\$22.00'),
-                          _buildFoodItem(
-                              'assets/plate6.png', 'Tunafish bowl', '\$26.00'),
                         ],
                       ),
                     ),
                   ),
-                  SizedBox(height: 5,),
+                  SizedBox(
+                    height: 5,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
