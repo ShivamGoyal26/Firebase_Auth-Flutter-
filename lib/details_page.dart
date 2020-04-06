@@ -95,7 +95,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         ),
                       ),
                       SizedBox(
-                        height: 30,
+                        height: 40,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -172,7 +172,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         ],
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 60,
                       ),
                       Container(
                         height: 150,
@@ -202,8 +202,23 @@ class _DetailsPageState extends State<DetailsPage> {
                         height: 20,
                       ),
                       Padding(
-                        padding: EdgeInsets.only(bottom: 5),
-                        
+                        padding: EdgeInsets.all(20),
+                        child: Container(
+                          padding: EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
+                            color: Colors.black,
+                          ),
+                          child: Center(
+                            child: Text(
+                              "\$52.00",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Montserrat',
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -216,53 +231,68 @@ class _DetailsPageState extends State<DetailsPage> {
 
   Widget _buildInfoCard(String cardTitle, String info, String unit) {
     return InkWell(
-      onTap: () {
-        selectCard(cardTitle);
-      },
-      child: AnimatedContainer(
-        duration: Duration(milliseconds: 500),
-        curve: Curves.easeIn,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0),
-          color: cardTitle == selectedCard ? Color(0xFF7A9BEE) : Colors.white,
-          border: Border.all(
-            color: cardTitle == selectedCard
-                ? Colors.transparent
-                : Colors.grey.withOpacity(0.3),
-            style: BorderStyle.solid,
-            width: 0.75,
-          ),
-        ),
-        height: 100,
-        width: 100,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              info,
-              style: TextStyle(
-                fontFamily: 'Montserrat',
-                fontSize: 14,
-                color: cardTitle == selectedCard ? Colors.white : Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
+        onTap: () {
+          selectCard(cardTitle);
+        },
+        child: AnimatedContainer(
+            duration: Duration(milliseconds: 500),
+            curve: Curves.easeIn,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.0),
+              color:
+                  cardTitle == selectedCard ? Color(0xFF7A9BEE) : Colors.white,
+              border: Border.all(
+                  color: cardTitle == selectedCard
+                      ? Colors.transparent
+                      : Colors.grey.withOpacity(0.3),
+                  style: BorderStyle.solid,
+                  width: 0.75),
             ),
-            Text(
-              unit,
-              style: TextStyle(
-                fontFamily: 'Montserrat',
-                fontSize: 12,
-                color: cardTitle == selectedCard ? Colors.white : Colors.black,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+            height: 150.0,
+            width: 100.0,
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8.0, left: 15.0),
+                    child: Text(cardTitle,
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 12.0,
+                          color: cardTitle == selectedCard
+                              ? Colors.white
+                              : Colors.grey.withOpacity(0.7),
+                        )),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15.0, bottom: 8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(info,
+                            style: TextStyle(
+                                fontFamily: 'Montserrat',
+                                fontSize: 14.0,
+                                color: cardTitle == selectedCard
+                                    ? Colors.white
+                                    : Colors.black,
+                                fontWeight: FontWeight.bold)),
+                        Text(unit,
+                            style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontSize: 12.0,
+                              color: cardTitle == selectedCard
+                                  ? Colors.white
+                                  : Colors.black,
+                            ))
+                      ],
+                    ),
+                  )
+                ])));
   }
 
-  void selectCard(dynamic cardTitle) {
+  selectCard(cardTitle) {
     setState(() {
       selectedCard = cardTitle;
     });
