@@ -8,6 +8,7 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
+  var selectedCard = 'WEIGHT';
   @override
   Widget build(BuildContext context) {
     final detail = ModalRoute.of(context).settings.arguments as List;
@@ -169,13 +170,57 @@ class _DetailsPageState extends State<DetailsPage> {
                             ),
                           ),
                         ],
-                      )
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        height: 150,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: <Widget>[],
+                        ),
+                      ),
                     ],
                   ),
-                )
+                ),
               ],
             )
           ],
         ));
+  }
+
+  Widget _buildInfoCard(String cardTitle, String info, String unit) {
+    return InkWell(
+      onTap: () {
+        selectCard(cardTitle);
+      },
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 500),
+        curve: Curves.easeIn,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: cardTitle == selectedCard ? Color(0xFF7A9BEE) : Colors.white,
+          border: Border.all(
+            color: cardTitle == selectedCard
+                ? Colors.transparent
+                : Colors.grey.withOpacity(0.3),
+            style: BorderStyle.solid,
+            width: 0.75,
+          ),
+        ),
+        height: 100,
+        width: 100,
+        child: Column(
+          children: <Widget>[],
+        ),
+      ),
+    );
+  }
+
+  void selectCard(dynamic cardTitle) {
+    setState(() {
+      selectedCard = cardTitle;
+    });
   }
 }

@@ -251,4 +251,5 @@ Widget _buildFoodItem(
       ),
     ),
   );
+  
 }
