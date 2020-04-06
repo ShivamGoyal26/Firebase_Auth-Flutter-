@@ -2,15 +2,7 @@ import 'package:flutter/material.dart';
 
 class DetailsPage extends StatefulWidget {
   static const routeName = '/product-details';
-  final heroTag;
-  final foodName;
-  final foodPrice;
 
-  DetailsPage({
-    this.foodName,
-    this.foodPrice,
-    this.heroTag,
-  });
   @override
   _DetailsPageState createState() => _DetailsPageState();
 }
@@ -87,6 +79,44 @@ class _DetailsPageState extends State<DetailsPage> {
                     ),
                   ),
                 ),
+                Positioned(
+                  top: 250.0,
+                  left: 25,
+                  right: 25,
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        detail[1],
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(
+                            detail[2],
+                            style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontSize: 20.0,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Container(
+                            height: 25,
+                            color: Colors.grey,
+                            width: 1.0,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                )
               ],
             )
           ],
