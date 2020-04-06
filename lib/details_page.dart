@@ -178,8 +178,32 @@ class _DetailsPageState extends State<DetailsPage> {
                         height: 150,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
-                          children: <Widget>[],
+                          children: <Widget>[
+                            _buildInfoCard('WEIGHT', '300', 'G'),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            _buildInfoCard('CALORIES', '267', 'CAL'),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            _buildInfoCard('VITAMINS', 'A, B6', 'VIT'),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            _buildInfoCard('AVAIL', 'NO', 'AV'),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                          ],
                         ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 5),
+                        
                       ),
                     ],
                   ),
@@ -212,7 +236,27 @@ class _DetailsPageState extends State<DetailsPage> {
         height: 100,
         width: 100,
         child: Column(
-          children: <Widget>[],
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              info,
+              style: TextStyle(
+                fontFamily: 'Montserrat',
+                fontSize: 14,
+                color: cardTitle == selectedCard ? Colors.white : Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              unit,
+              style: TextStyle(
+                fontFamily: 'Montserrat',
+                fontSize: 12,
+                color: cardTitle == selectedCard ? Colors.white : Colors.black,
+              ),
+            ),
+          ],
         ),
       ),
     );
