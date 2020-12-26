@@ -1,6 +1,6 @@
 # Firebase_Auth
 
-A new Flutter project.
+This is the flutter UI of the healthy meals sort of app :)
 
 ## Getting Started
 
